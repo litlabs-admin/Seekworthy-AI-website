@@ -46,17 +46,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0b0d" },
-  ],
+  // Light is the default regardless of the OS setting; dark is opt-in via the toggle.
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${interTight.variable} ${interTightSemibold.variable}`} suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem storageKey="seekworthy-theme" disableTransitionOnChange>
+        <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false} storageKey="seekworthy-theme" disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>

@@ -19,7 +19,7 @@ A one-page marketing site for SeekWorthy AI. It copies the **Answerline** Framer
 
 ## 2. Tokens
 
-Define all of these as CSS variables on `:root`, with a `[data-theme="dark"]` set (and the same set under `@media (prefers-color-scheme: dark)` for `:root:not([data-theme])`). Tailwind reads them through `@theme`.
+Define all of these as CSS variables on `:root`, with a `[data-theme="dark"]` set. **Light is the default for every visitor (the OS setting is ignored); dark only applies after the visitor picks it with the toggle, and that choice is remembered.** Tailwind reads them through `@theme`.
 
 ### Color
 
