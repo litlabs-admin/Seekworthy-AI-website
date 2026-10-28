@@ -367,23 +367,6 @@ section[id] {
 }
 
 /* ---------- Loops ---------- */
-/* Marquee: 30px/s, distance set by Marquee.tsx; stops on hover (template hoverModifier 0). */
-.marquee-track {
-  animation: marquee linear infinite;
-  animation-duration: 0s;
-}
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-@keyframes marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(var(--marquee-shift, 0), 0, 0);
-  }
-}
-
 /* Live dot pulse: scale 1 → 2.6, opacity .45 → 0 over 1.4s ease [0,0,.58,1], then 0.6s rest (2s cycle). */
 .live-pulse {
   opacity: 0;
@@ -406,7 +389,6 @@ section[id] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track,
   .live-pulse {
     animation: none;
   }

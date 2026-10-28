@@ -99,12 +99,6 @@ export const site = {
     note: "These are individual recorded answers. Recommendations can change by prompt, platform and test. They do not represent a fixed ranking across all AI answers.",
   },
 
-  audience: {
-    /** Copy doc §04 strip copy, split per design.md §3: "Built for" label + marquee items. */
-    sentence: "Built for brand teams, agencies, startups and enterprise teams.",
-    label: "Built for",
-    items: ["Brand teams", "Agencies", "Startups", "Enterprise teams"],
-  },
 
   proof: {
     metrics: [

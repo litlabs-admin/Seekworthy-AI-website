@@ -1,5 +1,4 @@
 import { AnswerFeed } from "@/components/sections/AnswerFeed";
-import { AudienceMarquee } from "@/components/sections/AudienceMarquee";
 import { ClosingCta } from "@/components/sections/ClosingCta";
 import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
@@ -20,7 +19,6 @@ export default function Home() {
       <main>
         <Hero />
         <AnswerFeed />
-        <AudienceMarquee />
         <ProofPoints />
         <PlatformOverview />
         <HowItWorks />
