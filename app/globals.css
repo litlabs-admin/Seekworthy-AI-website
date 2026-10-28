@@ -394,36 +394,78 @@ section[id] {
   }
 }
 
-/* Accordion: height auto-animates over 0.35s with the template ease; answer fades with it. */
+/* ---------- FAQ accordion (HoverAccordion) ----------
+   Height eases open/closed over 0.35s; the answer fades and rises 6px; the "+" turns into "−" as its
+   vertical stroke folds away; the row tints to --surface and the question shifts to --accent-text. */
 .faq-content[data-state="open"] {
   animation: faq-open 0.35s var(--ease-framer);
 }
 .faq-content[data-state="closed"] {
-  animation: faq-close 0.35s var(--ease-framer);
+  animation: faq-close 0.3s var(--ease-framer);
 }
 @keyframes faq-open {
   from {
     height: 0;
-    opacity: 0;
   }
   to {
     height: var(--radix-accordion-content-height);
-    opacity: 1;
   }
 }
 @keyframes faq-close {
   from {
     height: var(--radix-accordion-content-height);
-    opacity: 1;
   }
   to {
     height: 0;
-    opacity: 0;
   }
 }
+.faq-answer {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.3s var(--ease-framer),
+    transform 0.35s var(--ease-framer);
+}
+.faq-item[data-state="open"] .faq-answer {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.05s;
+}
+.faq-hover {
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-framer);
+}
+.faq-item:hover .faq-hover,
+.faq-item[data-state="open"] .faq-hover {
+  opacity: 1;
+}
+.faq-question {
+  transition: color 0.25s var(--ease-framer);
+}
+.faq-item:hover .faq-question,
+.faq-item[data-state="open"] .faq-question {
+  color: var(--accent-text);
+}
+.faq-icon {
+  transition: transform 0.35s var(--ease-framer);
+}
+.faq-icon-v {
+  transform-origin: 12px 12px;
+  transition: transform 0.35s var(--ease-framer);
+}
+.faq-item[data-state="open"] .faq-icon {
+  transform: rotate(180deg);
+}
+.faq-item[data-state="open"] .faq-icon-v {
+  transform: scaleY(0);
+}
 @media (prefers-reduced-motion: reduce) {
-  .faq-content[data-state] {
+  .faq-content[data-state],
+  .faq-answer,
+  .faq-icon,
+  .faq-icon-v {
     animation: none;
+    transition: none;
   }
 }
 

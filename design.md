@@ -153,7 +153,7 @@ Values from the export's component bundles (`/_reference/ANALYSIS.md` §5). The 
 | Work section left column | **Not sticky** (as in the template) | n/a |
 | Case metrics | No separate animation (they arrive with the card block) | n/a |
 | Answer block | No word-by-word reveal. The prompt bar fades in as a block; the answer, chips and cells are static | In view |
-| Accordion | Height auto-animates over **0.35s**; answer opacity 0→1; the `+` icon swaps to `−` (stroke 1.6, `--text-muted`), no rotation | Click / Enter |
+| Accordion (`HoverAccordion`, reused by every FAQ) | All items start closed. **Mouse:** opens after the cursor rests 150ms, closes 200ms after it leaves; clicks don't toggle. **Touch:** tap toggles. **Keyboard:** Enter/Space toggles. Height eases over 0.35s (close 0.3s); the answer fades in and rises 6px; the row tints to `--surface` and the question turns `--accent-text`; the `+` rotates and its vertical stroke folds into `−` | Hover / tap / Enter |
 | Nav | **Sticky, always solid** `--bg` with a bottom hairline. No scroll effect | n/a |
 | Nav sheet (tablet/phone) | The nav grows to `100dvh`; drawer rows (padding 20, bottom `--line`, Metric style `--ink`, hover `--accent-text`). Spring **duration 0.4, bounce 0.2**. Menu ↔ Close icon swap | Menu button tap |
 | Buttons | Hover overlay fades in, **0.2s**. No lift | Hover |
