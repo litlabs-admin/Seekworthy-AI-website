@@ -9,9 +9,9 @@ import { SectionRule } from "@/components/ui/SectionRule";
 
 /** The template's three service marks: engine icons, "lines" and "share" (accent, stroke 1.8). */
 function Mark({ index }: { index: number }) {
-  if (index === 0) return <EngineIcons engines={engines} size={18} gap={8} />;
+  if (index === 0) return <EngineIcons engines={engines} size={18} gap={8} wave />;
   const Icon = index === 1 ? LinesIcon : ShareIcon;
-  return <Icon width={28} height={28} strokeWidth={1.8} className="text-accent-text d:size-[28px] max-d:size-6" />;
+  return <Icon width={28} height={28} strokeWidth={1.8} className="lift-on-hover text-accent-text d:size-[28px] max-d:size-6" />;
 }
 
 export function PlatformOverview() {
@@ -23,12 +23,16 @@ export function PlatformOverview() {
         <Reveal amount={0.3}>
           <ul className="grid-lines grid grid-cols-1 d:grid-cols-3">
             {platform.cards.map((card, i) => (
-              <li key={card.title} className="flex flex-col gap-[10px] px-5 py-8 t:gap-3 t:px-8 t:pb-12 t:pt-10">
-                <div className="flex h-7 items-center">
+              <li key={card.title} className="group relative flex flex-col gap-[10px] px-5 py-8 t:gap-3 t:px-8 t:pb-12 t:pt-10">
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-surface opacity-0 transition-opacity duration-[250ms] ease-framer group-hover:opacity-100"
+                />
+                <div className="relative flex h-7 items-center">
                   <Mark index={i} />
                 </div>
-                <h3 className="t-h3 pt-3 text-ink">{card.title}</h3>
-                <p className="t-body text-body">{card.text}</p>
+                <h3 className="t-h3 relative pt-3 text-ink">{card.title}</h3>
+                <p className="t-body relative text-body">{card.text}</p>
               </li>
             ))}
           </ul>

@@ -444,3 +444,28 @@ section[id] {
     animation: none;
   }
 }
+
+/* ---------- Card micro-interactions (added; template-style easing, no bounce) ---------- */
+.wave-item {
+  display: block;
+  transition: transform 0.35s var(--ease-framer);
+}
+.group:hover .wave-item {
+  transform: translateY(-3px);
+}
+.lift-on-hover {
+  transition: transform 0.35s var(--ease-framer);
+}
+.group:hover .lift-on-hover {
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .wave-item,
+  .lift-on-hover {
+    transition: none;
+  }
+  .group:hover .wave-item,
+  .group:hover .lift-on-hover {
+    transform: none;
+  }
+}

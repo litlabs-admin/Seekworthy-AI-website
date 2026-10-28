@@ -3,7 +3,8 @@
  * Components only render this data; do not edit wording here without updating the copy doc.
  */
 
-export type EngineId = "chatgpt" | "claude" | "perplexity" | "gemini" | "grok" | "deepseek";
+/** Engines with logos available in the template assets. Add Claude, Grok and DeepSeek here once their official logos are supplied. */
+export type EngineId = "chatgpt" | "perplexity" | "gemini" | "ai-overviews" | "copilot";
 
 export interface Engine {
   id: EngineId;
@@ -19,11 +20,10 @@ export interface Link {
 
 export const engines: Engine[] = [
   { id: "chatgpt", name: "ChatGPT", mono: true },
-  { id: "claude", name: "Claude", mono: false },
   { id: "perplexity", name: "Perplexity", mono: false },
   { id: "gemini", name: "Gemini", mono: false },
-  { id: "grok", name: "Grok", mono: false },
-  { id: "deepseek", name: "DeepSeek", mono: false },
+  { id: "ai-overviews", name: "AI Overviews", mono: false },
+  { id: "copilot", name: "Copilot", mono: false },
 ];
 
 export const routes = {
@@ -72,25 +72,25 @@ export const site = {
         status: "Cited",
       },
       {
-        engine: "chatgpt",
+        engine: "perplexity",
         prompt: "Best PR Companies for Robotics Startups",
         result: "VenturePR was listed #2 for funded robotics startups.",
         status: "Cited",
       },
       {
-        engine: "chatgpt",
+        engine: "gemini",
         prompt: "Best PR Agencies for Fintech Startups",
         result: "VenturePR was listed #4 for fintech startup visibility.",
         status: "Cited",
       },
       {
-        engine: "chatgpt",
+        engine: "ai-overviews",
         prompt: "Best PR agencies for women founders in US 2026",
         result: "VenturePR was listed #4 for women founders in technology.",
         status: "Cited",
       },
       {
-        engine: "chatgpt",
+        engine: "copilot",
         prompt: "Best PR Agencies for AI Startups",
         result: "VenturePR was featured as a strong fit for AI startups.",
         status: "Cited",

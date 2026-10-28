@@ -18,9 +18,15 @@ export function Pricing() {
             {pricing.plans.map((plan) => (
               <li
                 key={plan.name}
-                className={`flex flex-col gap-5 px-5 pb-9 pt-8 t:gap-6 t:px-8 t:py-10 ${plan.featured ? "bg-surface!" : ""}`}
+                className={`group relative flex flex-col gap-5 px-5 pb-9 pt-8 t:gap-6 t:px-8 t:py-10 ${plan.featured ? "bg-surface!" : ""}`}
               >
-                <div className="flex flex-col gap-[6px]">
+                {!plan.featured && (
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-surface opacity-0 transition-opacity duration-[250ms] ease-framer group-hover:opacity-100"
+                  />
+                )}
+                <div className="relative flex flex-col gap-[6px]">
                   <div className="flex items-center justify-between gap-3">
                     <h3 className="t-h3 text-ink">{plan.name}</h3>
                     {plan.badge && (
@@ -32,23 +38,25 @@ export function Pricing() {
                   <p className="t-body text-body">{plan.description}</p>
                 </div>
 
-                <p className="flex items-end gap-2">
-                  <span className="t-stat text-ink">{plan.price}</span>
+                <p className="relative flex items-end gap-2">
+                  <span className="t-stat lift-on-hover text-ink">{plan.price}</span>
                   <span className="t-small pb-2 text-muted">{plan.cadence}</span>
                 </p>
 
-                <EngineIcons engines={engines} size={16} gap={7} />
+                <div className="relative">
+                  <EngineIcons engines={engines} size={16} gap={7} wave />
+                </div>
 
                 <ul className="hair hair-t hair-soft relative flex flex-col gap-[10px] pt-6">
-                  {plan.features.map((f) => (
-                    <li key={f} className="t-body text-body">
+                  {plan.features.map((f, i) => (
+                    <Reveal key={f} as="li" y={8} duration={0.5} delay={0.15 + i * 0.06} amount={0.8} className="t-body text-body">
                       {f}
-                    </li>
+                    </Reveal>
                   ))}
                 </ul>
 
                 <div className="flex-1" />
-                <div>
+                <div className="relative">
                   <Button href={plan.button.href} variant={plan.featured ? "primary" : "secondary"}>
                     {plan.button.label}
                   </Button>

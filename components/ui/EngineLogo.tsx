@@ -47,11 +47,16 @@ export function EngineLogo({
   );
 }
 
-export function EngineIcons({ engines, size, gap }: { engines: Engine[]; size: number; gap: number }) {
+/**
+ * A row of engine icons. With `wave`, hovering the nearest `.group` lifts each icon 3px in sequence (40ms apart).
+ */
+export function EngineIcons({ engines, size, gap, wave = false }: { engines: Engine[]; size: number; gap: number; wave?: boolean }) {
   return (
     <span className="inline-flex items-center" style={{ gap }} role="img" aria-label={engines.map((e) => e.name).join(", ")}>
-      {engines.map((e) => (
-        <EngineIcon key={e.id} engine={e} size={size} />
+      {engines.map((e, i) => (
+        <span key={e.id} className={wave ? "wave-item" : undefined} style={wave ? { transitionDelay: `${i * 40}ms` } : undefined}>
+          <EngineIcon engine={e} size={size} />
+        </span>
       ))}
     </span>
   );

@@ -32,7 +32,7 @@ export function Results() {
                 </div>
                 <div className="relative flex flex-col gap-[10px] px-5 pt-6 t:px-8 t:pt-7">
                   <p className="t-small text-muted">{card.category}</p>
-                  <h3 className="t-h3 text-ink">{card.title}</h3>
+                  <h3 className="t-h3 text-ink transition-colors duration-[250ms] ease-framer group-hover:text-accent-text">{card.title}</h3>
                   <p className="t-body text-body">{card.text}</p>
                 </div>
                 <div className="min-h-7 flex-1" />
