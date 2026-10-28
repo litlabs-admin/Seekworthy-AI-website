@@ -1,0 +1,446 @@
+@import "tailwindcss";
+
+/* ---------- Color tokens (values from the Answerline export, see design.md §2) ---------- */
+:root {
+  --bg: #ffffff;
+  --surface: #fafafb;
+  --surface-2: #f1f2f4;
+  --line: #e4e6ea;
+  --line-soft: #eef0f2;
+  --line-strong: #d5d8dd;
+  --faint: #a0a5ad;
+  --text-muted: #4a4e55;
+  --text-body: #2a2d31;
+  --ink: #0d0f12;
+  --accent: #3050f0;
+  --accent-text: #3050f0;
+  --accent-tint: #e8ecff;
+  --accent-ink: #2440d8;
+  --accent-line: #c9d2ff;
+  --fill-hover: #eef0f2;
+  --on-accent: #ffffff;
+  --logo: #6b7078;
+  --watermark: #f1f2f4;
+  --button-bg: #ffffff;
+  --primary-hover: rgba(255, 255, 255, 0.14);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0a0b0d;
+  --surface: #0e1013;
+  --surface-2: #121417;
+  --line: #24272c;
+  --line-soft: #1c1f23;
+  --line-strong: #2e3238;
+  --faint: #6b7078;
+  --text-muted: #b4b8bf;
+  --text-body: #d9dce1;
+  --ink: #edeff2;
+  --accent: #4362ff;
+  --accent-text: #8ea0ff;
+  --accent-tint: #1a2150;
+  --accent-ink: #a3b2ff;
+  --accent-line: #2f3a80;
+  --fill-hover: #22252a;
+  --logo: #9ea3ab;
+  --watermark: #181b20;
+  --button-bg: #121417;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --breakpoint-t: 810px;
+  --breakpoint-d: 1200px;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-line-strong: var(--line-strong);
+  --color-faint: var(--faint);
+  --color-muted: var(--text-muted);
+  --color-body: var(--text-body);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-tint: var(--accent-tint);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-line: var(--accent-line);
+  --color-fill-hover: var(--fill-hover);
+  --color-on-accent: var(--on-accent);
+  --color-logo: var(--logo);
+  --color-watermark: var(--watermark);
+  --color-button-bg: var(--button-bg);
+
+  --font-sans: var(--font-inter-tight), "Inter Tight Placeholder", Arial, sans-serif;
+  --ease-framer: cubic-bezier(0.44, 0, 0.56, 1);
+}
+
+/* Metric-matched fallback, as in the export */
+@font-face {
+  font-family: "Inter Tight Placeholder";
+  src: local("Arial");
+  ascent-override: 99.65%;
+  descent-override: 24.81%;
+  line-gap-override: 0%;
+  size-adjust: 97.21%;
+}
+
+/* ---------- Base (in the base layer so utilities can override it) ---------- */
+@layer base {
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "blwf" on, "cv03" on, "cv04" on, "cv09" on, "cv11" on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+section[id] {
+  scroll-margin-top: 64px;
+}
+@media (min-width: 1200px) {
+  section[id] {
+    scroll-margin-top: 68px;
+  }
+}
+}
+
+/* ---------- Text styles (design.md §2 Typography). Phone first, then tablet, then desktop ---------- */
+@utility t-display {
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+  @media (min-width: 810px) {
+    font-size: 48px;
+    line-height: 56px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 52px;
+    line-height: 60px;
+  }
+}
+@utility t-h2 {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  @media (min-width: 810px) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 34px;
+    line-height: 42px;
+  }
+}
+@utility t-stat {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  @media (min-width: 810px) {
+    font-size: 40px;
+    line-height: 44px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 44px;
+    line-height: 48px;
+  }
+}
+@utility t-metric {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+@utility t-h3 {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+@utility t-prompt {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  @media (min-width: 810px) {
+    font-size: 22px;
+    line-height: 34px;
+  }
+}
+@utility t-h4 {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+@utility t-lead-l {
+  font-size: 19px;
+  line-height: 30px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  @media (min-width: 810px) {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+@utility t-lead {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  @media (min-width: 810px) {
+    font-size: 17px;
+    line-height: 27px;
+  }
+}
+@utility t-body {
+  font-size: 17px;
+  line-height: 26px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  @media (min-width: 810px) {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+@utility t-ui {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  @media (min-width: 810px) {
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+@utility t-small {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+@utility t-small-strong {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+@utility t-wordmark {
+  font-family: var(--font-inter-tight-600), "Inter Tight Placeholder", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+/* ---------- Link colors (template link presets) ---------- */
+@utility link-body {
+  color: var(--text-body);
+  transition: color 0.2s var(--ease-framer);
+  &:hover {
+    color: var(--ink);
+  }
+}
+@utility link-accent {
+  color: var(--accent-text);
+  transition: color 0.2s var(--ease-framer);
+  &:hover {
+    color: var(--ink);
+  }
+}
+
+/* ---------- Grid gap trick: 1px dividers drawn by the parent's line background ---------- */
+@utility grid-lines {
+  gap: 1px;
+  background: var(--line);
+  & > * {
+    background: var(--bg);
+  }
+}
+
+/* ---------- Hairlines: drawn by ::after like Framer's data-border, so boxes keep their size ---------- */
+@utility hair {
+  /* the host must be positioned (relative/sticky/absolute) */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border: 0 solid var(--hair, var(--line));
+    border-radius: inherit;
+    z-index: 1;
+  }
+}
+@utility hair-t {
+  &::after {
+    border-top-width: 1px;
+  }
+}
+@utility hair-b {
+  &::after {
+    border-bottom-width: 1px;
+  }
+}
+@utility hair-l {
+  &::after {
+    border-left-width: 1px;
+  }
+}
+@utility hair-r {
+  &::after {
+    border-right-width: 1px;
+  }
+}
+@utility hair-x {
+  &::after {
+    border-left-width: 1px;
+    border-right-width: 1px;
+  }
+}
+@utility hair-all {
+  &::after {
+    border-width: 1px;
+  }
+}
+@utility hair-none {
+  &::after {
+    border-width: 0;
+  }
+}
+@utility hair-soft {
+  --hair: var(--line-soft);
+}
+@utility hair-strong {
+  --hair: var(--line-strong);
+}
+@utility hair-accent {
+  --hair: var(--accent-line);
+}
+
+/* ---------- Loops ---------- */
+/* Marquee: 30px/s, distance set by Marquee.tsx; stops on hover (template hoverModifier 0). */
+.marquee-track {
+  animation: marquee linear infinite;
+  animation-duration: 0s;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(var(--marquee-shift, 0), 0, 0);
+  }
+}
+
+/* Live dot pulse: scale 1 → 2.6, opacity .45 → 0 over 1.4s ease [0,0,.58,1], then 0.6s rest (2s cycle). */
+.live-pulse {
+  opacity: 0;
+  animation: live-pulse 2s infinite;
+}
+@keyframes live-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.45;
+    animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+  }
+  70% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .live-pulse {
+    animation: none;
+  }
+}
+
+/* Accordion: height auto-animates over 0.35s with the template ease; answer fades with it. */
+.faq-content[data-state="open"] {
+  animation: faq-open 0.35s var(--ease-framer);
+}
+.faq-content[data-state="closed"] {
+  animation: faq-close 0.35s var(--ease-framer);
+}
+@keyframes faq-open {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+@keyframes faq-close {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-content[data-state] {
+    animation: none;
+  }
+}
