@@ -6,7 +6,7 @@ type ContainerProps<T extends ElementType> = {
   children: ReactNode;
   /** Classes for the full-bleed outer band (section). */
   className?: string;
-  /** Classes for the 1248px railed column. */
+  /** Classes for the 1120px railed column. */
   railsClassName?: string;
   /** Crosshairs on the top corners of the rails (where the previous section's hairline meets them). */
   crosshairs?: boolean;
@@ -16,7 +16,7 @@ type ContainerProps<T extends ElementType> = {
 
 /**
  * A full-bleed section band with side padding 16/32/40 and a full-bleed bottom hairline,
- * wrapping a centered 1248px column with 1px rails left and right.
+ * wrapping a centered 1120px column with 1px rails left and right.
  */
 export function Container<T extends ElementType = "section">({
   as,
@@ -33,7 +33,7 @@ export function Container<T extends ElementType = "section">({
       className={`hair ${rule ? "hair-b" : ""} relative flex w-full flex-col items-center px-4 t:px-8 d:px-10 ${className}`}
       {...rest}
     >
-      <div className={`hair hair-x relative flex w-full max-w-[1248px] flex-col ${railsClassName}`}>
+      <div className={`hair hair-x relative flex w-full max-w-[1120px] flex-col ${railsClassName}`}>
         {crosshairs && <Crosshairs />}
         {children}
       </div>

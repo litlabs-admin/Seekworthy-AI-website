@@ -21,10 +21,10 @@ export function HeroBento() {
 
   return (
     <section className="relative z-20 overflow-visible">
-      <div className="px-4 pt-6 pb-12 sm:pt-8 sm:pb-14 lg:px-8 lg:pt-10 lg:pb-16">
+      <div className="mx-auto max-w-[1120px] px-4 pt-6 sm:pt-8 lg:px-8 lg:pt-10">
         <div className="mx-auto" style={{ maxWidth: 1280 }}>
           <div
-            className="hero-bento-shell relative bg-vc-surface rounded-md overflow-hidden ring-1 ring-black/[0.07]"
+            className="hero-bento-shell relative bg-vc-surface rounded-t-md overflow-hidden ring-1 ring-black/[0.07]"
             style={{
               opacity: mounted ? 1 : 0,
               transform: mounted ? "translateY(0px)" : "translateY(8px)",

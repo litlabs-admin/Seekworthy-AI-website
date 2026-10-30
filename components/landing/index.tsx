@@ -52,7 +52,6 @@ export default function Landing() {
             </div>
             <Hero />
             <HeroBento />
-            <div className="h-8 sm:h-10 lg:h-12" />
           </div>
           <WhyNow />
           <Platform />
