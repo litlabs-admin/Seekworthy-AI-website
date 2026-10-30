@@ -30,7 +30,7 @@ export function Container<T extends ElementType = "section">({
   const Tag = (as ?? "section") as ElementType;
   return (
     <Tag
-      className={`hair ${rule ? "hair-b" : ""} relative flex w-full flex-col items-center px-4 t:px-8 d:px-10 ${className}`}
+      className={`hair ${rule ? "hair-b" : ""} relative flex w-full flex-col items-center px-4 lg:px-8 ${className}`}
       {...rest}
     >
       <div className={`hair hair-x relative flex w-full max-w-[1120px] flex-col ${railsClassName}`}>

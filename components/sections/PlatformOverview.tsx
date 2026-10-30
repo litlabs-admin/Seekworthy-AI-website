@@ -21,7 +21,7 @@ export function PlatformOverview() {
       <SectionHead id="platform-title" headline={platform.headline} intro={platform.intro} />
       <SectionRule>
         <Reveal amount={0.3}>
-          <ul className="grid-lines grid grid-cols-1 d:grid-cols-3">
+          <ul className="grid-lines grid grid-cols-1 lg:grid-cols-3">
             {platform.cards.map((card, i) => (
               <li key={card.title} className="group relative flex flex-col gap-[10px] px-5 py-8 t:gap-3 t:px-8 t:pb-12 t:pt-10">
                 <span

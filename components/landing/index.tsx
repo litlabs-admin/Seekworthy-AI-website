@@ -38,21 +38,25 @@ export default function Landing() {
       <main>
         <div className="vc-home relative bg-vc-surface">
           <Rails />
-          <div className="relative">
+          <div className="relative flex min-h-[calc(100svh-52px)] flex-col sm:min-h-[calc(100svh-56px)]">
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
               <div
                 className="mx-auto h-full w-full"
                 style={{
                   maxWidth: 1120,
                   backgroundImage: "url(/landing/images/hero-bg-2.avif)",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center bottom",
+                  backgroundSize: "100% 200%",
+                  backgroundPosition: "center top",
                   backgroundRepeat: "no-repeat",
                 }}
               />
             </div>
-            <Hero />
+            <div className="flex-1">
+              <Hero />
+            </div>
             <EngineStrip />
+          </div>
+          <div className="pt-8 sm:pt-10 lg:pt-12">
             <HeroBento />
           </div>
           <WhyNow />

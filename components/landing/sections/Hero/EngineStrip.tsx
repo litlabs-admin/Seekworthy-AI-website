@@ -12,9 +12,9 @@ const engines = [
 /** Hairline strip between the hero and the dashboard, one cell per tracked engine. */
 export function EngineStrip() {
   return (
-    <section aria-label={site.hero.engineLabel} className="relative mx-auto max-w-[1120px] bg-vc-surface">
-      <ul className="grid grid-cols-2 divide-x divide-y divide-vc-default border-y border-vc-default sm:grid-cols-3 lg:grid-cols-[180px_repeat(6,minmax(0,1fr))] lg:divide-y-0">
-        <li className="col-span-2 flex h-14 items-center justify-center px-4 text-caption text-vc-secondary sm:col-span-3 lg:col-span-1">
+    <section aria-label={site.hero.engineLabel} className="relative mx-auto w-full max-w-[1120px] bg-vc-surface">
+      <ul className="grid grid-cols-2 divide-x divide-y divide-vc-default border-t border-b border-vc-default sm:grid-cols-3 lg:grid-cols-[200px_repeat(6,minmax(0,1fr))] lg:divide-y-0">
+        <li className="col-span-2 flex h-14 items-center justify-center whitespace-nowrap px-4 text-caption text-vc-secondary sm:col-span-3 lg:col-span-1">
           {site.hero.engineLabel}
         </li>
         {engines.map((e) => (

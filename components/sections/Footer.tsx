@@ -24,13 +24,13 @@ export function Footer() {
   const { footer } = site;
   return (
     <Container as="footer" rule={false}>
-      <div className="hair hair-b relative grid grid-cols-1 d:grid-cols-[416px_minmax(0,1fr)]">
+      <div className="hair hair-b relative grid grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)]">
         <div className="hair d:hair-r relative flex flex-col gap-[14px] px-5 pb-8 pt-12 t:gap-5 t:px-8 t:pb-10 t:pt-12 d:py-14">
           <Logo className="w-fit" />
           <p className="t-body max-w-[320px] text-body">{footer.description}</p>
         </div>
 
-        <div className="hair hair-t relative grid grid-cols-2 t:grid-cols-3 d:hair-none d:grid-cols-[266px_266px_minmax(0,1fr)]">
+        <div className="hair hair-t relative grid grid-cols-2 t:grid-cols-3 lg:hair-none lg:grid-cols-3">
           {footer.columns.map((col, i) => (
             <nav
               key={col.heading}
