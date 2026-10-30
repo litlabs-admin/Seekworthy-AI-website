@@ -1,0 +1,86 @@
+"use client";
+
+import { useScrollReveal, scrollRevealEase } from "@/components/landing/hooks/useScrollReveal";
+import { ResourceCard } from "./ResourceCard";
+import { AiSearchAreaChart } from "./AiSearchAreaChart";
+import { DataTileGrid } from "./DataTileGrid";
+import { resourceCards } from "./data";
+
+// Learn/Research section. It carries its own top margin and "[05]" eyebrow
+// rather than the shared SectionHeader.
+//
+// One bordered panel holds three stacked pieces divided by border-t: a 3-col
+// resource row, a feature block with the AI-referral-traffic area chart, and a
+// 4-col data tile grid. A single useScrollReveal call drives all reveal timing.
+export function LearnResearch() {
+  const { ref, isVisible } = useScrollReveal<HTMLElement>();
+
+  return (
+    <section
+      id="learn-research-section"
+      ref={ref}
+      className="bg-vc-surface relative mt-[42px] sm:mt-[62px] lg:mt-[83px]"
+    >
+      <div
+        className={
+          "hidden lg:flex items-center absolute top-0 z-20 h-[72px] transition-all duration-500 " +
+          (isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2")
+        }
+        style={{ left: "calc(50% - 624px)", transitionTimingFunction: scrollRevealEase }}
+      >
+        <span className="text-[11px] font-semibold tracking-[0.08em] text-vc-accent tabular-nums">
+          [05]
+        </span>
+      </div>
+
+      <div className="px-4 lg:px-8 ">
+        <div className="mx-auto" style={{ maxWidth: 1120 }}>
+          <div
+            className="border border-vc-default overflow-hidden bg-vc-surface"
+            style={{ maxWidth: 1120, margin: "0px auto" }}
+          >
+            <div
+              className={
+                "grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-vc-default transition-all duration-700 " +
+                (isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4")
+              }
+              style={{ transitionTimingFunction: scrollRevealEase }}
+            >
+              {resourceCards.map((item) => (
+                <ResourceCard key={item.title} item={item} isVisible={isVisible} />
+              ))}
+            </div>
+
+            <div
+              className={
+                "border-t border-vc-default px-4 sm:px-6 lg:px-8 py-6 sm:py-7 transition-all duration-700 " +
+                (isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3")
+              }
+              style={{ transitionTimingFunction: scrollRevealEase }}
+            >
+              <div className="inline-flex flex-col gap-1.5 w-full">
+                <span className="inline-flex items-center gap-2">
+                  <span className="text-[15px] sm:text-[16px] font-semibold text-vc-primary tracking-[-0.01em]">
+                    See how AI search actually works
+                  </span>
+                </span>
+                <span className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-4">
+                  <span className="text-[12px] sm:text-[13px] text-vc-secondary">
+                    Track what AI crawls, cites, and recommends about your brand.
+                  </span>
+                  <span className="vc-ds-mono text-[10px] font-normal tabular-nums tracking-[0.02em] text-vc-tertiary whitespace-nowrap">
+                    AI referral traffic · illustrative
+                  </span>
+                </span>
+              </div>
+
+              <AiSearchAreaChart isVisible={isVisible} />
+            </div>
+
+            <DataTileGrid isVisible={isVisible} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

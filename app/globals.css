@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../components/landing/theme.css";
 
 /* ---------- Color tokens (values from the Answerline export, see design.md §2) ---------- */
 :root {

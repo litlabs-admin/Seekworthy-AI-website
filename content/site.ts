@@ -127,7 +127,7 @@ export const site = {
         text: "Get prioritized actions and content support. Update the information buyers need, strengthen your public evidence and review what changes in later checks.",
       },
     ],
-    button: { label: "See how it works", href: "#how-it-works" } satisfies Link,
+    button: { label: "See how it works", href: "#platform-section" } satisfies Link,
   },
 
   howItWorks: {
@@ -343,10 +343,10 @@ export const site = {
       {
         heading: "Sections",
         links: [
-          { label: "How it works", href: "#how-it-works" },
-          { label: "Results", href: "#results" },
-          { label: "Pricing", href: "#pricing" },
-          { label: "FAQs", href: "#faqs" },
+          { label: "Why now", href: "#why-now-section" },
+          { label: "Platform", href: "#platform-section" },
+          { label: "Overview", href: "#platform-title" },
+          { label: "Proof", href: "#revenue-section" },
         ],
       },
       {
