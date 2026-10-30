@@ -2,6 +2,7 @@ import "./styles.css";
 import { ClosingCta } from "@/components/sections/ClosingCta";
 import { Footer } from "@/components/sections/Footer";
 import { PlatformOverview } from "@/components/sections/PlatformOverview";
+import { EngineStrip } from "./sections/Hero/EngineStrip";
 import { Hero } from "./sections/Hero/Hero";
 import { HeroBento } from "./sections/HeroBento/HeroBento";
 import { LearnResearch } from "./sections/LearnResearch/LearnResearch";
@@ -30,7 +31,7 @@ const Rails = () => (
  */
 export default function Landing() {
   return (
-    <>
+    <div className="landing-type">
       <div className="vc-home sticky top-0 z-50">
         <Nav />
       </div>
@@ -51,6 +52,7 @@ export default function Landing() {
               />
             </div>
             <Hero />
+            <EngineStrip />
             <HeroBento />
           </div>
           <WhyNow />
@@ -65,6 +67,6 @@ export default function Landing() {
         <ClosingCta />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

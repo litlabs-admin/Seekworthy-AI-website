@@ -1,4 +1,14 @@
 @theme {
+  --text-ui: 14px;
+  --text-ui--line-height: 1.5;
+  --text-body: 13px;
+  --text-body--line-height: 1.5;
+  --text-caption: 12px;
+  --text-caption--line-height: 1.5;
+  --text-data: 11px;
+  --text-data--line-height: 1.5;
+  --text-label: 10px;
+  --text-label--line-height: 1.5;
   --color-vc-surface: var(--bg-surface-2);
   --color-vc-page: var(--bg-base);
   --color-vc-primary: var(--fg-primary);
@@ -43,4 +53,33 @@
   --brand-accent: #3050f0;
   --brand-accent-fill: #2440d8;
   --brand-accent-subtle: #e8ecff;
+}
+
+/* VentureCite typography across the whole landing page, including the site's own sections. */
+.landing-type {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-feature-settings: normal;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, Monaco, Consolas, monospace;
+}
+.landing-type .t-h2 {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.landing-type .t-h3 {
+  font-size: 20px;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.landing-type :is(.t-lead, .t-lead-l, .t-body, .t-ui) {
+  font-size: 14px;
+  line-height: 1.625;
+  letter-spacing: 0;
+}
+.landing-type .t-small {
+  font-size: 12px;
+  letter-spacing: 0;
 }

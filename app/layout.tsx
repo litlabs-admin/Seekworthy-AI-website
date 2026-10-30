@@ -1,4 +1,5 @@
 ﻿import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import { site } from "@/content/site";
@@ -23,6 +24,9 @@ const interTightSemibold = localFont({
   preload: false,
   adjustFontFallback: false,
 });
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap", preload: false });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
@@ -52,7 +56,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${interTight.variable} ${interTightSemibold.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${interTight.variable} ${interTightSemibold.variable} ${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
       <body>
         <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false} storageKey="seekworthy-theme" disableTransitionOnChange>
           {children}

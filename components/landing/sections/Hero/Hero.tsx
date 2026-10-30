@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { scrollRevealEase } from "@/components/landing/hooks/useScrollReveal";
 import { HeroCta } from "./HeroCta";
-import { AiLogoRow } from "./AiLogoRow";
 
 // The hero is not scroll-triggered: it fades in on mount rather than via
 // useScrollReveal's IntersectionObserver, and the inner blocks stagger at
@@ -85,21 +84,6 @@ export function Hero() {
                 style={{ transitionDelay: "200ms" }}
               >
                 <HeroCta />
-              </div>
-
-              {/* Reassurance line under the CTA. `text-vc-secondary` (not the
-                  muted token) so it holds contrast against the hero's light
-                  gradient background, not just a plain surface. */}
-              <div
-                className={`flex items-center justify-center gap-4 max-[359px]:flex-col max-w-[460px] mx-auto mt-5 transition-all duration-500 ${
-                  mounted ? "opacity-100" : "opacity-0"
-                }`}
-                style={{ transitionDelay: "300ms" }}
-              >
-                <p className="text-body text-vc-primary font-medium">
-                  10-min setup · No code · Weekly reports
-                </p>
-                <AiLogoRow />
               </div>
             </div>
           </div>
