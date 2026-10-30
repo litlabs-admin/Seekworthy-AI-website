@@ -14,13 +14,16 @@ export function SectionHeader({
   number,
   label,
   subtitle,
+  flush = false,
 }: {
   number: string;
   label: string;
   subtitle: string;
+  /** Drops the top margin when the previous section already ends in a rule. */
+  flush?: boolean;
 }) {
   return (
-    <div className="relative mt-[42px] sm:mt-[62px] lg:mt-[83px]">
+    <div className={`relative ${flush ? "" : "mt-[42px] sm:mt-[62px] lg:mt-[83px]"}`}>
       <div
         className="hidden lg:flex items-center absolute top-0 bottom-0 z-20"
         style={{ left: "calc(50% - 624px)" }}

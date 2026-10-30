@@ -38,7 +38,7 @@ export function PlatformOverview() {
           </ul>
         </Reveal>
       </SectionRule>
-      <ButtonRow>
+      <ButtonRow className="!pb-7 t:!pb-8">
         <Button href={platform.button.href} variant="secondary">
           {platform.button.label}
         </Button>

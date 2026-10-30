@@ -19,7 +19,7 @@ import {
 // the toggle is static at 30D and does not switch datasets.
 export function VisibilityChartPanel() {
   return (
-    <div className="col-span-12 lg:col-span-8 border-b lg:border-b-0 lg:border-r border-vc-hairline">
+    <div className="min-w-0 col-span-12 lg:col-span-8 border-b lg:border-b-0 lg:border-r border-vc-hairline">
       <div className="flex flex-col h-full min-h-[260px] lg:min-h-0">
         <div className="flex items-center justify-between px-5 pt-4 pb-3">
           <div className="flex items-center gap-3">

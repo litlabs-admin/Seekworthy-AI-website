@@ -13,7 +13,7 @@ export function Revenue() {
 
   return (
     <>
-      <SectionHeader number="04" label="Revenue" subtitle="Proof" />
+      <SectionHeader number="04" label="Revenue" subtitle="Proof" flush />
       <section id="revenue-section" ref={ref} className="bg-vc-surface relative">
         <div className="px-4 lg:px-8">
           <div className="mx-auto" style={{ maxWidth: 1120 }}>

@@ -228,15 +228,9 @@
 
 /* Hero Bento - chart width override + mobile snap-carousel scrollbar hiding.
    (see the .hero-bento-chart rules below). */
-.vc-home .hero-bento-chart .recharts-wrapper,
 .vc-home .hero-bento-chart .recharts-surface {
-  width: min(calc(66.6667vw - 59.67px), 836.33px) !important;
-}
-@media (max-width: 1023px) {
-  .vc-home .hero-bento-chart .recharts-wrapper,
-  .vc-home .hero-bento-chart .recharts-surface {
-    width: calc(100vw - 48px) !important;
-  }
+  width: 100% !important;
+  height: auto !important;
 }
 .vc-home .hero-bento-row2-scroll {
   scrollbar-width: none;
